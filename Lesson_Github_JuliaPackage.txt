@@ -1,0 +1,76 @@
+     1. Building package using Package template. 
+
+There is online guidance about creating a package using PkgTempelates. However, I wanted to make it in a particular directory. 
+
+generate julia package “Abhi_Package" in directory “~/Documents/Floq_Exact_Diag”. 
+
+In the following we open the Mac terminal and go to the directory “~/Documents/Floq_Exact_Diag”. Also 
+########
+####1.Generate package 
+########
+In[1] bash: using PkgTemplates
+
+In[2] bash:
+template = Template(
+    user=“AbhiPhy2020", 
+    dir="~/Documents/Floq_Exact_Diag",         
+    authors=["Abhishek Kumar"],
+    license="MIT", 
+    plugins=[
+        Git(; manifest=false), 
+        Codecov(),          
+        Documenter{GitHubActions}(),
+        GitHubActions(),
+    ],
+)
+
+In[3] bash:
+generate(template, “Abhi_Package”)
+
+Note: Sometimes, copying the above script leads to some errors due to quotation (" ").
+
+Now go to julia: 
+
+########
+####2.Add dependencies 
+########
+
+julia>]  activate Abhi_Package  #Julia>] means julia Pkg : 
+or 
+
+bash: cd ~/Documents/Floq_Exact_Diag/Abhi_Package
+julia>]  activate .
+
+
+julia>]  precompile
+
+julia>]  status
+
+julia>]  add LinearAlgebra # add all dependencies (LinearAlgebra, Kronecker,JSON, CSV, etc.)
+
+julia>]  precompile
+
+
+########
+####3.GitHub 
+######## Create a Github repository named "Abhi_Package.jl" 
+#######################
+########### Julia package directly creates \\https url of remote instead of ssh url. But we need (at least what I know) a git url.
+###############
+bash: cd ~/Documents/Floq_Exact_Diag/Abhi_Package
+ 
+bash: git remote -v 
+     
+git origin	https://github.com/abhiphys2020/Abhi_Package.jl (fetch)
+origin	 https://github.com/abhiphys2020/Abhi_Package.jl (push)
+
+(base) abhishek22@Sophia-MBPro-438559 Floq_ED_v0 % git remote set-url origin git@github.com:AbhiPhy2020/Floq_ED_v0.jl.git
+
+(base) abhishek22@Sophia-MBPro-438559 Floq_ED_v0 % git remote -v
+origin	 git@github.com:AbhiPhy2020/Floq_ED_v0.jl.git (fetch)
+origin	 git@github.com:AbhiPhy2020/Floq_ED_v0.jl.git (push)
+
+(base) abhishek22@Sophia-MBPro-438559 Floq_ED_v0 % git push origin main
+
+
+
