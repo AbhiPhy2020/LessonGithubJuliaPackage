@@ -1,16 +1,16 @@
      1. Building package using Package template. 
 
-There is online guidance about creating a package using PkgTempelates. However, I wanted to make it in a particular directory. 
+There is online guidance about creating a package using PkgTempelates. However, I wanted to create package in a particular directory as opposed to default ".julia/" (hidden)
 
 generate julia package “Abhi_Package" in directory “~/Documents/Floq_Exact_Diag”. 
 
 In the following we open the Mac terminal and go to the directory “~/Documents/Floq_Exact_Diag”. Also 
 ########
-####1.Generate package 
+####1.Generate a package using PackageTemplates # 
 ########
-In[1] bash: using PkgTemplates
+In[1] julia> using PkgTemplates
 
-In[2] bash:
+In[2] julia>
 template = Template(
     user=“AbhiPhy2020", 
     dir="~/Documents/Floq_Exact_Diag",         
@@ -24,12 +24,11 @@ template = Template(
     ],
 )
 
-In[3] bash:
+In[3] julia>
 generate(template, “Abhi_Package”)
 
 Note: Sometimes, copying the above script leads to some errors due to quotation (" ").
 
-Now go to julia: 
 
 ########
 ####2.Add dependencies 
@@ -42,20 +41,22 @@ bash: cd ~/Documents/Floq_Exact_Diag/Abhi_Package
 julia>]  activate .
 
 
-julia>]  precompile
-
-julia>]  status
-
 julia>]  add LinearAlgebra # add all dependencies (LinearAlgebra, Kronecker,JSON, CSV, etc.)
+ 
+julia>]  add(url="https://github.com/username/ExamplePackage.jl") # To add dependency from the github package (that has not been registered) ExamplePackage.jl
 
-julia>]  precompile
+julia>] instantiate()  # This will ensure all dependencies are downloaded and installed 
 
+julia>] precompile  # Precompile all dependencies
+
+julia>] status # status of the package shows all dependencies 
+
+julia>] test # test of the package
 
 ########
-####3.GitHub 
-######## Create a Github repository named "Abhi_Package.jl" 
+####3.GitHub: Create a Github repository named "Abhi_Package.jl" 
 #######################
-########### Julia package directly creates \\https url of remote instead of ssh url. But we need (at least what I know) a git url.
+########### Julia package directly creates \\https url of remote instead of ssh url. But we need (at least what I know) a git url. So we have to replace https url with git url.
 ###############
 bash: cd ~/Documents/Floq_Exact_Diag/Abhi_Package
  
