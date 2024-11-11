@@ -1,10 +1,10 @@
      1. Building package using Package template. 
 
-There is online guidance about creating a package using PkgTempelates. However, I wanted to create package in a particular directory as opposed to default ".julia/" (hidden)
+There is an online guidance about creating a package using PkgTempelates. However, I wanted to create package in a particular directory as opposed to default ".julia/" (hidden)
 
 generate julia package “Abhi_Package" in directory “~/Documents/Floq_Exact_Diag”. 
 
-In the following we open the Mac terminal and go to the directory “~/Documents/Floq_Exact_Diag”. Also 
+In the following we open the Mac terminal and go to the directory “~/Documents/Floq_Exact_Diag”. Procedure: 
 ########
 ####1.Generate a package using PackageTemplates # 
 ########
