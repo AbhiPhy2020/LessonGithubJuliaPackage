@@ -74,4 +74,6 @@ origin	 git@github.com:AbhiPhy2020/Floq_ED_v0.jl.git (push)
 (base) abhishek22@Sophia-MBPro-438559 Floq_ED_v0 % git push origin main
 
 
+######How to run python and julia on the HPC (VT)
+
 
